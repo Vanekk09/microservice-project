@@ -72,7 +72,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let response: Response<SignUpResponse> = client.sign_up(request).await?;
 
             let duration = start.elapsed().as_millis();
-            println!("Sign In request time: {:?}", duration);
+            println!("Sign Up request time: {:?}", duration);
             println!("{:?}", response.into_inner());
         }
         Some(Commands::SignOut { session_token }) => {
@@ -84,7 +84,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let response: Response<SignOutResponse> = client.sign_out(request).await?;
 
             let duration = start.elapsed().as_millis();
-            println!("Sign In request time: {:?}", duration);
+            println!("Sign Out request time: {:?}", duration);
             println!("{:?}", response.into_inner());
         }
         None => {}

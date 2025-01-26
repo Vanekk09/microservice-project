@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   health-check:
+    image: ivanpinchuk/health-check
     build:
       context: .
       dockerfile: Dockerfile-health
@@ -9,6 +10,7 @@ services:
       auth:
         condition: service_started
   auth:
+    image: ivanpinchuk/auth
     build:
       context: .
       dockerfile: Dockerfile-auth

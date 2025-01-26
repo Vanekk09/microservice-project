@@ -3,4 +3,26 @@ name = "microservice-project"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "auth"
+path = "src/auth-service/main.rs"
+
+[[bin]]
+name = "client"
+path = "src/client/main.rs"
+
+[[bin]]
+name = "health-check"
+path = "src/health-check-service/main.rs"
+
 [dependencies]
+tonic = "0.12.3" # used by all
+prost = "0.13.4" # used by all
+tokio = { version = "1.43.0", features = ["macros", "rt-multi-thread", "time"] } # used by all
+uuid = { version = "1.12.1", features = ["v4"] } # used by auth and health-check services
+pbkdf2 = { version = "0.12.2", features = ["simple"] } # used by auth service
+rand_core = { version = "0.6.4", features = ["std"] } # used by auth service
+clap = { version = "4.5.27", features = ["derive"] } # used by client
+
+[build-dependencies]
+tonic-build = "0.12.3" # used by all

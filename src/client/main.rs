@@ -58,7 +58,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let start = Instant::now();
             let response: SignInResponse = client.sign_in(request).await?.into_inner();
 
-            let duration = start.elapsed().as_millis();
+            let duration = start.elapsed();
             println!("Sign In request time: {:?}", duration);
             println!("{:?}", response);
         }
@@ -71,7 +71,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let start = Instant::now();
             let response: Response<SignUpResponse> = client.sign_up(request).await?;
 
-            let duration = start.elapsed().as_millis();
+            let duration = start.elapsed();
             println!("Sign Up request time: {:?}", duration);
             println!("{:?}", response.into_inner());
         }
@@ -83,7 +83,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let start = Instant::now();
             let response: Response<SignOutResponse> = client.sign_out(request).await?;
 
-            let duration = start.elapsed().as_millis();
+            let duration = start.elapsed();
             println!("Sign Out request time: {:?}", duration);
             println!("{:?}", response.into_inner());
         }
